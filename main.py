@@ -1,3 +1,4 @@
+import os
 import sys
 import math
 import pytmx
@@ -16,31 +17,14 @@ screen = pygame.display.set_mode(
          0,
          32)
 
-ctx = {}
-ctx['game'], ctx['pause'] = 1, 0
+current_level = 0
 
-buttons = pygame.sprite.Group()
-coins = pygame.sprite.Group()
-tiles = pygame.sprite.Group()
-enemies = pygame.sprite.Group()
-all_sprites = pygame.sprite.Group()
+levels = [
+    Level(os.path.join('./art/Tiled', 'tutorialMap.tmx')),
+]
 
 while run:
-    for event in pygame.event.get():
-        if event.type == pygame.QUIT:
-            # x2 buttons: "Are you sure you want to quit?" [y] [n] ...
-            if ctx['game']:
-                run = 0
-            else:
-                run = 0
-
-        if ctx['game']:
-            if event.type == pygame.KEYDOWN:
-                if event.key == pygame.K_ESCAPE:
-                    # inversion minimizes syntax logic
-                    ctx['pause'] = not ctx['pause']
-
-    screen.fill(BLACK)
+    levels[current_level].run()
     pygame.display.update()
     clock.tick(FPS)
 
