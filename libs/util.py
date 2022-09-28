@@ -1,5 +1,6 @@
 import pytmx
 import pygame
+from .consts import WHITE, font
 
 def load_tmx() -> any: ...
 
