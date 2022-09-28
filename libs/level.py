@@ -38,23 +38,19 @@ class Level:
                     properties = self.level_data.get_tile_properties_by_gid(gid)
                     if tile:
                         if properties['tile']:
-                            Tile(
-                                    image=tile,
-                                    position=(x * self.level_data.tilewidth, y * self.level_data.tileheight),
-                                    groups=(self.tiles, self.all_sprites)
-                                )
-                        elif properties['player']:
-                            Player(
-                                    image=tile,
-                                    position=(x * self.level_data.tilewidth, y * self.level_data.tileheight),
-                                    groups=(self.tiles, self.all_sprites)
-                                )
-                        elif properties['enemy']:
-                            Enemy(
-                                    image=tile,
-                                    position=(x * self.level_data.tilewidth, y * self.level_data.tileheight),
-                                    groups=(self.tiles, self.all_sprites)
-                                )
+                            Tile(image=tile,
+                                       position=(x * self.level_data.tilewidth, y * self.level_data.tileheight),
+                                       groups=(self.tiles, self.all_sprites))
+                        if properties['player']:
+                            print(tile)
+                            self.player = Player(
+                                          image=tile,
+                                          position=(x * self.level_data.tilewidth, y * self.level_data.tileheight),
+                                          groups=(self.all_sprites))
+                        if properties['enemy']:
+                            Enemy(image=tile,
+                                        position=(x * self.level_data.tilewidth, y * self.level_data.tileheight),
+                                        groups=(self.tiles, self.all_sprites))
 
     def run(self):
         for event in pygame.event.get():
@@ -79,4 +75,5 @@ class Level:
                         ctx['pause'] = not ctx['pause']
 
         if ctx['game']:
-            self.all_sprites.draw_ctx(self.screen)
+            self.player.update()
+            self.all_sprites.draw_ctx(self.screen, target=self.player)

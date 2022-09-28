@@ -869,7 +869,7 @@
   <properties>
    <property name="chest" type="bool" value="false"/>
    <property name="enemy" type="bool" value="false"/>
-   <property name="player" type="bool" value="true"/>
+   <property name="player" type="bool" value="false"/>
    <property name="tile" type="bool" value="false"/>
    <property name="weapon" type="bool" value="false"/>
   </properties>
@@ -878,7 +878,7 @@
   <properties>
    <property name="chest" type="bool" value="false"/>
    <property name="enemy" type="bool" value="false"/>
-   <property name="player" type="bool" value="true"/>
+   <property name="player" type="bool" value="false"/>
    <property name="tile" type="bool" value="false"/>
    <property name="weapon" type="bool" value="false"/>
   </properties>
@@ -887,7 +887,7 @@
   <properties>
    <property name="chest" type="bool" value="false"/>
    <property name="enemy" type="bool" value="false"/>
-   <property name="player" type="bool" value="true"/>
+   <property name="player" type="bool" value="false"/>
    <property name="tile" type="bool" value="false"/>
    <property name="weapon" type="bool" value="false"/>
   </properties>
