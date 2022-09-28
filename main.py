@@ -1,5 +1,6 @@
 import os
 import sys
+import pytmx
 import pygame
 
 from libs import *
