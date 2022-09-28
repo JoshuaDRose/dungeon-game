@@ -24,7 +24,6 @@ class Level:
         self.tmx_map = tmx_map
         self.map_data = pytmx.TiledMap(tmx_map)
         self.tilemap = os.path.join('./art/Tilemap/tilemap.png')
-        self.spritesheet = ss(self.tilemap)
         self.player_spawn: float = (0, 0)
 
 
