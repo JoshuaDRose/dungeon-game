@@ -7,3 +7,4 @@ __Sep 28__
     - Installed deps
     - Linting
  - Added requests.txt file which allows github to recognize dependencies 
+ - Made very basic tilemap with just ground tiles
