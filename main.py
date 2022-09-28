@@ -1,7 +1,5 @@
 import os
 import sys
-import math
-import random
 import pygame
 
 from libs import *

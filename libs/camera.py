@@ -11,4 +11,4 @@ class CameraGroup(pygame.sprite.Group):
     def draw_ctx(self, surface):
         for sprite in sorted(self.sprites(), key=lambda sprite: sprite.rect.centery):
             offset_position = sprite.rect.topleft + self.offset
-            surface.blit(sprite.image, sprite.rect)
+            surface.blit(sprite.image, offset_position)
