@@ -7,3 +7,4 @@ from .tile import *
 from .spritesheet import *
 from .sprite_strip_anim import *
 from .enemy import *
+from .camera import *

@@ -9,6 +9,7 @@ from .consts import *
 from .tile import Tile
 from .player import Player
 from .enemy import Enemy
+from .camera import CameraGroup as Group
 
 ctx = {}
 ctx['game'], ctx['pause'] = 1, 0
@@ -20,11 +21,11 @@ class Level:
         self.width = self.level_data.tilewidth * self.level_data.width
         self.height = self.level_data.tileheight * self.level_data.height
 
-        self.buttons = pygame.sprite.Group()
-        self.coins = pygame.sprite.Group()
-        self.tiles = pygame.sprite.Group()
-        self.enemies = pygame.sprite.Group()
-        self.all_sprites = pygame.sprite.Group()
+        self.buttons = Group()
+        self.coins = Group()
+        self.tiles = Group()
+        self.enemies = Group()
+        self.all_sprites = Group()
 
         self.screen = pygame.display.get_surface()
         self.map_data = pytmx.TiledMap(tmx_map)
@@ -78,4 +79,4 @@ class Level:
                         ctx['pause'] = not ctx['pause']
 
         if ctx['game']:
-            self.all_sprites.draw(self.screen)
+            self.all_sprites.draw_ctx(self.screen)
