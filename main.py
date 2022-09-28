@@ -1,7 +1,6 @@
 import os
 import sys
 import math
-import pytmx
 import random
 import pygame
 
