@@ -15,3 +15,7 @@ font = pygame.font.SysFont(
        55, 1, 0)
 
 img_root = ...
+
+ACC = 0.3
+FRIC = -0.10
+COUNT = 0

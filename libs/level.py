@@ -42,7 +42,6 @@ class Level:
                                        position=(x * self.level_data.tilewidth, y * self.level_data.tileheight),
                                        groups=(self.tiles, self.all_sprites))
                         if properties['player']:
-                            print(tile)
                             self.player = Player(
                                           image=tile,
                                           position=(x * self.level_data.tilewidth, y * self.level_data.tileheight),

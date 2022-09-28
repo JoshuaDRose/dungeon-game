@@ -1,3 +1,4 @@
+import math
 import pygame
 from pygame.locals import *
 from .util import *
@@ -10,25 +11,39 @@ class Player(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.x, self.rect.y = position
         self.position = pygame.math.Vector2(self.rect.x, self.rect.y)
-        self.direction = pygame.math.Vector2()
-        self.vel = 5
+        self.motion = False
+        self.acc = pygame.math.Vector2(0, 0)
+        self.vel = pygame.math.Vector2(0, 0)
 
     def recv_input(self):
         key = pygame.key.get_pressed()
 
         if key[K_UP]:
-            self.direction.y = -1
+            self.acc.y = -ACC
         elif key[K_DOWN]:
-            self.direction.y = 1
+            self.acc.y = ACC
         else:
-            self.direction.y = 0
+            self.acc.y = 0
         if key[K_LEFT]:
-            self.direction.x = -1
+            self.acc.x = -ACC
         elif key[K_RIGHT]:
-            self.direction.x = 1
+            self.acc.x = ACC
         else:
-            self.direction.x = 0
+            self.acc.x = 0
+
+    def move(self):
+
+        self.motion = self.vel.magnitude() > 0.3
+        self.acc.x += self.vel.x * FRIC
+        self.acc.y += self.vel.y * FRIC
+
+        self.vel += self.acc
+        self.position += self.vel + 0.5 * self.acc
+
+        self.rect.centerx = self.position.x // 2
+        self.rect.centery = self.position.y // 2
+
 
     def update(self):
         self.recv_input()
-        self.rect.center += self.direction * self.vel
+        self.move()
