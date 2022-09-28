@@ -3,7 +3,7 @@ import pygame
 
 def load_tmx() -> any: ...
 
-def load_image(image, colorkey: tuple, root=root):
+def load_image(image, colorkey: tuple, root):
     ... 
 
 def draw_text(text, pos, center=False):

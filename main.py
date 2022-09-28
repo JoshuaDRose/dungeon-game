@@ -10,10 +10,10 @@ pygame.init()
 
 run = 1
 clock = pygame.time.Clock()
-screen_width, screen_height = 1920 // 2, 1080 // 2
+screen_width, screen_height = 1920 // 2, 1280 // 2
 screen = pygame.display.set_mode(
          (screen_width, screen_height),
-         pygame.SHOWN,
+         0,
          32)
 
 ctx = {}
@@ -26,7 +26,6 @@ enemies = pygame.sprite.Group()
 all_sprites = pygame.sprite.Group()
 
 while run:
-
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             # x2 buttons: "Are you sure you want to quit?" [y] [n] ...
