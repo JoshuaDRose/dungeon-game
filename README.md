@@ -2,7 +2,7 @@
 
 # Dungeon Explorer
 
-_A roleplay turnbased adventure game_
+_A roguelike dungeon explorer game_
 
 ![license](https://img.shields.io/github/license/JoshuaDRose/dungeon-game?color=%23e67233)
 ![Lines](https://img.shields.io/tokei/lines/github/JoshuaDRose/dungeon-game)
