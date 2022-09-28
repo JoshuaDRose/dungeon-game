@@ -4,8 +4,8 @@
 
 _A roleplay turnbased adventure game_
 
-![license](https://img.shields.io/github/license/JoshuaDRose/dungeon-game?color=%23e67233&label=License)
-![Lines](https://img.shields.io/tokei/lines/github/JoshuaDRose/dungeon-game?color=%233eb810&logo=github)
+![license](https://img.shields.io/github/license/JoshuaDRose/dungeon-game?color=%23e67233)
+![Lines](https://img.shields.io/tokei/lines/github/JoshuaDRose/dungeon-game)
 ![code style](https://img.shields.io/badge/code%20style-black-282828.svg)
 
 </div>
