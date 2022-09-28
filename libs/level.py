@@ -35,7 +35,6 @@ class Level:
                 for x, y, gid in layer:
                     tile = self.level_data.get_tile_image_by_gid(gid)
                     properties = self.level_data.get_tile_properties_by_gid(gid)
-                    print(properties)
                     if properties['tile']:
                         Tile(
                                 image=tile,
