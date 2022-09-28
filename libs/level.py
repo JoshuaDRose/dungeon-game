@@ -11,8 +11,8 @@ from .player import Player
 from .enemy import Enemy
 from .camera import CameraGroup as Group
 
-ctx = {}
-ctx['game'], ctx['pause'] = 1, 0
+ctx = {'game': 0, 'pause': 0, 'menu': 1}
+
 
 class Level:
     def __init__(self, tmx_map):
@@ -28,8 +28,30 @@ class Level:
         self.all_sprites = Group()
 
         self.screen = pygame.display.get_surface()
+
+        self.screen_width = self.screen.get_width()
+        self.screen_height = self.screen.get_height()
+
         self.map_data = pytmx.TiledMap(tmx_map)
         self.tilemap = os.path.join('./art/Tilemap/tilemap.png')
+
+        self.title_map_location = '/home/qwerty/projects/python/dungeon-game/art/Tiled/titleMap.tmx'
+
+        self.title_screen = pytmx.load_pygame(
+            os.path.join(self.title_map_location),
+            pixelalpha=True
+        )
+        self.title_tiles = pygame.sprite.Group()
+
+        for layer in self.title_screen:
+            if isinstance(layer, pytmx.TiledTileLayer):
+                for x, y, gid in layer:
+                    tile = self.title_screen.get_tile_image_by_gid(gid)
+                    if tile:
+                        tile = pygame.transform.scale(tile, (64, 64))
+                        Tile(image=tile,
+                                position=(x * self.title_screen.tilewidth, y * self.title_screen.tilewidth),
+                                groups=(self.title_tiles))
 
         for layer in self.map_data.visible_layers:
             if isinstance(layer, pytmx.TiledTileLayer):
@@ -76,3 +98,6 @@ class Level:
         if ctx['game']:
             self.player.update()
             self.all_sprites.draw_ctx(self.screen, target=self.player)
+
+        elif ctx['menu']:
+            self.title_tiles.draw(self.screen)
