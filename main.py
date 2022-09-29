@@ -3,6 +3,7 @@ import sys
 import pytmx
 import pygame
 
+from pygame.locals import *
 from libs import *
 
 pygame.init()
@@ -12,7 +13,7 @@ clock = pygame.time.Clock()
 screen_width, screen_height = 1920 // 2, 1280 // 2
 screen = pygame.display.set_mode(
          (screen_width, screen_height),
-         0,
+         HWSURFACE | DOUBLEBUF,
          32)
 pygame.display.set_caption(caption)
 
@@ -24,7 +25,7 @@ levels = [
 
 while run:
     levels[current_level].run()
-    pygame.display.update()
+    pygame.display.flip()
     clock.tick(FPS)
 
 pygame.quit()
