@@ -24,6 +24,25 @@ class CameraGroup(pygame.sprite.Group):
         
         self.target_hitbox = pygame.Rect(0, 0, 0, 0)
 
+        self.zoom_out = 0
+
+    def zoom_monitor(self):
+        if self.zoom_out:
+            # if further away than allowed
+            if self.scale < 2.7:
+                self.scale = 2.7
+            # else do normal zoom out
+            if self.scale > 2.7:
+                self.scale -= .1
+        else:
+            # if closer than allowed
+            if self.scale > 3:
+                # set to default
+                self.scale = 3
+            # else do normal zoom in
+            if self.scale < 3:
+                self.scale += .1
+
     def target_center(self, sprite: pygame.sprite.Sprite):
         self.offset.x = sprite.rect.centerx - self.split_width
         self.offset.y = sprite.rect.centery - self.split_height

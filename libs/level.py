@@ -51,6 +51,7 @@ class Level:
 
         self.mp = pygame.mouse.get_pos()
         self.mclick = False
+        pygame.mouse.set_visible(1)
 
         self.health_bar = Health((10, 10), self.ui_bars)
 
@@ -158,13 +159,15 @@ class Level:
             self.target.update()
             self.enemies.update()
             self.target.hitbox = self.all_sprites.target_hitbox
-            print(self.target.hitbox)
+            # print(self.target.hitbox)
             for sprite in self.enemies:
                 if pygame.Rect.colliderect(sprite.rect, self.all_sprites.target_hitbox):
                     print("Player colliding with enemy")
                 pygame.draw.rect(sprite.image, (255, 0, 0), sprite.rect, 3, 0)
 
             self.all_sprites.draw_ctx(self.screen, self.target)
+            self.all_sprites.zoom_out = self.target.motion
+            self.all_sprites.zoom_monitor()
             pygame.draw.circle(self.screen, (255, 0, 0), 
                     (self.mp[0]+1, self.mp[1]+1), 2)
             # Draw ui
