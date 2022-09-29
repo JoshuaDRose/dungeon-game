@@ -5,6 +5,7 @@ from .util import *
 from .consts import *
 from .ui import *
 
+
 class Player(pygame.sprite.Sprite):
     """player"""
     def __init__(self, image, position, groups):
@@ -18,6 +19,7 @@ class Player(pygame.sprite.Sprite):
         self.acc = pygame.math.Vector2(0, 0)
         self.vel = pygame.math.Vector2(0, 0)
         self.hitbox = pygame.Rect(0, 0, 0, 0)
+        self.colliding = False
 
     def recv_input(self):
         key = pygame.key.get_pressed()

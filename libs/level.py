@@ -30,7 +30,6 @@ class Level:
         self.all_sprites = Group()
         self.player = Group()
 
-        # Position is static
         self.ui_bars = pygame.sprite.Group()
 
         self.screen = pygame.display.get_surface()
@@ -59,9 +58,6 @@ class Level:
         self.count_tiles = 0
         self.count_characters = 0
         self.count_enemies = 0
-
-
-        ### TEST BUTTON ###
 
         self.play = Button(
                 "Play",
@@ -106,7 +102,6 @@ class Level:
                     if tile:
                         if properties['tile']:
                             self.count_tiles += 1
-                            # draw_loading(self.count_tiles, self.count_characters, self.count_enemies)
                             Tile(image=tile,
                                        position=(x * self.level_data.tilewidth, y * self.level_data.tileheight),
                                        groups=(self.tiles, self.all_sprites))
@@ -118,7 +113,6 @@ class Level:
                                           groups=(self.player, self.all_sprites))
                         elif properties['enemy']:
                             self.count_enemies += 1
-                            # draw_loading(self.count_tiles, self.count_characters, self.count_enemies)
                             Enemy(image=tile,
                                         position=(x * self.level_data.tilewidth, y * self.level_data.tileheight),
                                         groups=(self.enemies, self.all_sprites))
@@ -128,7 +122,6 @@ class Level:
     def run(self):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
-                # x2 buttons: "Are you sure you want to quit?" [y] [n] ...
                 if ctx['game']:
                     pygame.quit()
                     sys.exit()
@@ -152,25 +145,24 @@ class Level:
             if ctx['game']:
                 if event.type == pygame.KEYDOWN:
                     if event.key == pygame.K_ESCAPE:
-                        # inversion minimizes syntax logic
                         ctx['pause'] = not ctx['pause']
 
         if ctx['game']:
             self.target.update()
             self.enemies.update()
             self.target.hitbox = self.all_sprites.target_hitbox
-            # print(self.target.hitbox)
             for sprite in self.enemies:
                 if pygame.Rect.colliderect(sprite.rect, self.all_sprites.target_hitbox):
-                    print("Player colliding with enemy")
+                    target.colliding = True
+
                 pygame.draw.rect(sprite.image, (255, 0, 0), sprite.rect, 3, 0)
 
             self.all_sprites.draw_ctx(self.screen, self.target)
             self.all_sprites.zoom_out = self.target.motion
             self.all_sprites.zoom_monitor()
             pygame.draw.circle(self.screen, (255, 0, 0), 
-                    (self.mp[0]+1, self.mp[1]+1), 2)
-            # Draw ui
+                    (self.mp[0] + 1, self.mp[1] + 1), 2)
+
             for actor in self.ui_bars:
                 actor.update()
                 actor.draw(self.screen)
@@ -191,5 +183,5 @@ class Level:
                             sys.exit(0)
                 else:
                     button.hover = False
-                button.draw(self.screen)
 
+                button.draw(self.screen)
