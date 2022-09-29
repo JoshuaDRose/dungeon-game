@@ -12,7 +12,7 @@ from .enemy import Enemy
 from .button import Button
 from .camera import CameraGroup as Group
 
-ctx = {'game': 0, 'pause': 0, 'menu': 1}
+ctx = {'game': 0, 'pause': 0, 'menu': 1, 'settings': 0}
 
 
 class Level:
@@ -44,9 +44,36 @@ class Level:
         )
         self.title_tiles = pygame.sprite.Group()
 
-        ### TEST BUTTON ###
-        self.button = Button("test", (255, 255, 255), (0, 100), None, (1, 0))
+        self.mp = pygame.mouse.get_pos()
+        self.mclick = False
 
+        ### TEST BUTTON ###
+
+        self.play = Button(
+                "Play",
+                (255, 255, 255),
+                (0, 200),
+                groups=self.buttons,
+                center=(1, 0)
+        )
+
+
+        self.settings = Button(
+                "Settings",
+                (255, 255, 255),
+                (0, 300),
+                groups=self.buttons,
+                center=(1, 0)
+        )
+
+        self.quit = Button(
+                "Quit",
+                (255, 255, 255),
+                (0, 400),
+                groups=self.buttons,
+                center=(1, 0)
+        )
+        
         for layer in self.title_screen:
             if isinstance(layer, pytmx.TiledTileLayer):
                 for x, y, gid in layer:
@@ -88,6 +115,14 @@ class Level:
                     pygame.quit()
                     sys.exit()
 
+            if event.type == pygame.MOUSEBUTTONDOWN:
+                self.mclick = True
+            elif event.type == pygame.MOUSEBUTTONUP:
+                self.mclick = False
+
+            if event.type == pygame.MOUSEMOTION:
+                self.mp = pygame.mouse.get_pos()
+
             elif event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_RETURN:
                     pygame.quit()
@@ -105,4 +140,18 @@ class Level:
 
         elif ctx['menu']:
             self.title_tiles.draw(self.screen)
-            self.screen.blit(self.button.image, self.button.rect)
+            for button in self.buttons:
+                button.update()
+                if pygame.Rect.collidepoint(button.rect, self.mp):
+                    button.hover = True
+                    if self.mclick:
+                        if button.name.lower() == 'play':
+                            ctx['game'] = 1
+                            ctx['menu'] = 0
+                        elif button.name.lower() == 'quit':
+                            pygame.quit()
+                            sys.exit(0)
+                else:
+                    button.hover = False
+                button.draw(self.screen)
+
