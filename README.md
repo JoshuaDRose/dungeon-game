@@ -24,6 +24,8 @@ __Sep 28__
     - Linting
  - Added requests.txt file which allows github to recognize dependencies 
  - Made very basic tilemap
+ - Added cool menu thing
+ - Added player movment
  
 Artwork Attributions
 -------------------------------------------------------------------------------
