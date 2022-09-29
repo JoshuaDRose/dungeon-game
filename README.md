@@ -27,6 +27,13 @@ __Sep 28__
  - Added cool menu thing
  - Added player movment
  
+__Sep 29__
+ - Added buttons 
+ - Created button / ui animations
+ - Added additional milestones
+ - Created main menu background 
+ - Added in `SRCALPHA` for smoother transitions
+ 
 Artwork Attributions
 -------------------------------------------------------------------------------
 Huge thanks to Kenney Art for the sprites. You can find more of their stuff [here](https://www.kenney.nl).
