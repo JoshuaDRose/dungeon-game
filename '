@@ -45,18 +45,17 @@ class CameraGroup(pygame.sprite.Group):
             self.surface.blit(target.image,
                     (offset_position[0], offset_position[1]))
 
-            self.target_hitbox = pygame.Rect(
-                target.rect.topleft[0] - self.offset[0] - 230,
-                target.rect.topleft[1] - self.offset[1] - 70,
-                target.rect.width,
-                target.rect.height)
-
             pygame.draw.rect(self.surface, (255,0,0), 
-                    self.target_hitbox, 3, 0)
-
-
+                    pygame.Rect(target.rect.topleft[0] - self.offset[0], 
+                        target.rect.topleft[1] - self.offset[1],
+                        target.rect.width, target.rect.height), 3, 0)
+        self.target_hitbox = pygame.Rect(target.rect.topleft[0] - self.offset[0] - 230,
+                        target.rect.topleft[1] - self.offset[1] - 70,
+                        target.rect.width, target.rect.height)
         scaled_surf = pygame.transform.scale(self.surface, self.movement * self.scale)
         scaled_rect = scaled_surf.get_rect(center=(self.split_width, self.split_height))
 
         surface.blit(scaled_surf, scaled_rect)
+
+    def target_hitbox(self, target) -> pygame.Rect:
 

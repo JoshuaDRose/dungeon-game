@@ -4,6 +4,7 @@ import pygame
 
 import pytmx
 
+from .ui import *
 from .util import *
 from .consts import *
 from .tile import Tile
@@ -27,6 +28,10 @@ class Level:
         self.tiles = Group()
         self.enemies = Group()
         self.all_sprites = Group()
+        self.player = Group()
+
+        # Position is static
+        self.ui_bars = pygame.sprite.Group()
 
         self.screen = pygame.display.get_surface()
 
@@ -46,6 +51,14 @@ class Level:
 
         self.mp = pygame.mouse.get_pos()
         self.mclick = False
+
+        self.health_bar = Health((10, 10), self.ui_bars)
+
+
+        self.count_tiles = 0
+        self.count_characters = 0
+        self.count_enemies = 0
+
 
         ### TEST BUTTON ###
 
@@ -91,18 +104,25 @@ class Level:
                     properties = self.level_data.get_tile_properties_by_gid(gid)
                     if tile:
                         if properties['tile']:
+                            self.count_tiles += 1
+                            # draw_loading(self.count_tiles, self.count_characters, self.count_enemies)
                             Tile(image=tile,
                                        position=(x * self.level_data.tilewidth, y * self.level_data.tileheight),
                                        groups=(self.tiles, self.all_sprites))
-                        if properties['player']:
+                        elif properties['player']:
+                            self.count_characters += 1
                             self.player = Player(
                                           image=tile,
                                           position=(x * self.level_data.tilewidth, y * self.level_data.tileheight),
-                                          groups=(self.all_sprites))
-                        if properties['enemy']:
+                                          groups=(self.player, self.all_sprites))
+                        elif properties['enemy']:
+                            self.count_enemies += 1
+                            # draw_loading(self.count_tiles, self.count_characters, self.count_enemies)
                             Enemy(image=tile,
                                         position=(x * self.level_data.tilewidth, y * self.level_data.tileheight),
-                                        groups=(self.tiles, self.all_sprites))
+                                        groups=(self.enemies, self.all_sprites))
+
+        self.target = self.player
 
     def run(self):
         for event in pygame.event.get():
@@ -135,8 +155,23 @@ class Level:
                         ctx['pause'] = not ctx['pause']
 
         if ctx['game']:
-            self.player.update()
-            self.all_sprites.draw_ctx(self.screen, target=self.player)
+            self.target.update()
+            self.enemies.update()
+            self.target.hitbox = self.all_sprites.target_hitbox
+            print(self.target.hitbox)
+            for sprite in self.enemies:
+                if pygame.Rect.colliderect(sprite.rect, self.all_sprites.target_hitbox):
+                    print("Player colliding with enemy")
+                pygame.draw.rect(sprite.image, (255, 0, 0), sprite.rect, 3, 0)
+
+            self.all_sprites.draw_ctx(self.screen, self.target)
+            pygame.draw.circle(self.screen, (255, 0, 0), 
+                    (self.mp[0]+1, self.mp[1]+1), 2)
+            # Draw ui
+            for actor in self.ui_bars:
+                actor.update()
+                actor.draw(self.screen)
+
 
         elif ctx['menu']:
             self.title_tiles.draw(self.screen)

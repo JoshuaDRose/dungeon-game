@@ -3,10 +3,13 @@ import pygame
 from pygame.locals import *
 from .util import *
 from .consts import *
+from .ui import *
 
 class Player(pygame.sprite.Sprite):
+    """player"""
     def __init__(self, image, position, groups):
         super().__init__(groups)
+        self.window = pygame.display.get_surface()
         self.image = image
         self.rect = self.image.get_rect()
         self.rect.x, self.rect.y = position
@@ -14,6 +17,7 @@ class Player(pygame.sprite.Sprite):
         self.motion = False
         self.acc = pygame.math.Vector2(0, 0)
         self.vel = pygame.math.Vector2(0, 0)
+        self.hitbox = pygame.Rect(0, 0, 0, 0)
 
     def recv_input(self):
         key = pygame.key.get_pressed()
