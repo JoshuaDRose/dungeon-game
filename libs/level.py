@@ -9,6 +9,7 @@ from .consts import *
 from .tile import Tile
 from .player import Player
 from .enemy import Enemy
+from .button import Button
 from .camera import CameraGroup as Group
 
 ctx = {'game': 0, 'pause': 0, 'menu': 1}
@@ -42,6 +43,9 @@ class Level:
             pixelalpha=True
         )
         self.title_tiles = pygame.sprite.Group()
+
+        ### TEST BUTTON ###
+        self.button = Button("test", (255, 255, 255), (0, 100), None, (1, 0))
 
         for layer in self.title_screen:
             if isinstance(layer, pytmx.TiledTileLayer):
@@ -101,3 +105,4 @@ class Level:
 
         elif ctx['menu']:
             self.title_tiles.draw(self.screen)
+            self.screen.blit(self.button.image, self.button.rect)

@@ -12,9 +12,9 @@ run = 1
 clock = pygame.time.Clock()
 screen_width, screen_height = 1920 // 2, 1280 // 2
 screen = pygame.display.set_mode(
-         (screen_width, screen_height),
-         HWSURFACE | DOUBLEBUF,
-         32)
+    (screen_width, screen_height),
+    (HWSURFACE | DOUBLEBUF | SHOWN), 32
+)
 pygame.display.set_caption(caption)
 
 current_level = 0
