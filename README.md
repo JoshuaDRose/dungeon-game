@@ -6,6 +6,7 @@ _A roguelike dungeon explorer game_
 
 
 ![commits](https://img.shields.io/github/commit-activity/w/JoshuaDRose/dungeon-game?label=commits&logo=git&logoColor=white&color=%23e67233)
+![](https://tokei.rs/b1/github/JoshuaDRose/dungeon-game)
 ![commit status](https://img.shields.io/github/commit-status/JoshuaDRose/dungeon-game/master/7e56a2d69e27bbe8c2df8561f6280d57f5cc25f9?logo=pypy)
 ![milestones](https://img.shields.io/github/milestones/all/JoshuaDRose/dungeon-game?color=skyblue&logo=github)
 <!-- ![Lines](https://img.shields.io/tokei/lines/github/JoshuaDRose/dungeon-game)               -->
