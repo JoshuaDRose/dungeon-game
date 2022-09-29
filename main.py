@@ -14,6 +14,7 @@ screen = pygame.display.set_mode(
          (screen_width, screen_height),
          0,
          32)
+pygame.display.set_caption(caption)
 
 current_level = 0
 
