@@ -12,6 +12,7 @@ from .player import Player
 from .enemy import Enemy
 from .button import Button
 from .camera import CameraGroup as Group
+from .checkbox import CheckBox
 
 ctx = {'game': 0, 'pause': 0, 'menu': 1, 'settings': 0}
 
@@ -30,6 +31,7 @@ class Level:
         self.all_sprites = Group()
         self.player = Group()
 
+        self.checkboxes = pygame.sprite.Group()
         self.ui_bars = pygame.sprite.Group()
 
         self.screen = pygame.display.get_surface()
@@ -83,6 +85,8 @@ class Level:
                 groups=self.buttons,
                 center=(1, 0)
         )
+
+        self.zoom_debug = CheckBox((self.width - 75, 75), self.checkboxes)
         
         for layer in self.title_screen:
             if isinstance(layer, pytmx.TiledTileLayer):
@@ -167,6 +171,9 @@ class Level:
                 actor.update()
                 actor.draw(self.screen)
 
+            for checkbox in self.checkboxes:
+                checkbox.update()
+                checkbox.draw(self.screen)
 
         elif ctx['menu']:
             self.title_tiles.draw(self.screen)
