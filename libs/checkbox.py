@@ -13,6 +13,7 @@ class CheckBox(pygame.sprite.Sprite):
         self.rect.x, self.rect.y = pos
         self.pressed = False
         self.convert = False
+        # self.scaled = pygame.math.Vector2(self.rect.size).magnitude() > 2
 
     def draw(self, surface) -> None:
         surface.blit(self.image, self.rect)
@@ -26,3 +27,4 @@ class CheckBox(pygame.sprite.Sprite):
             self.image = pygame.image.load('./art/ui/buttonSquare_beige.png').convert_alpha()
             self.image.set_colorkey((0, 0, 0))
             self.convert = False
+
