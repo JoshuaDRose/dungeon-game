@@ -16,6 +16,7 @@
    <property name="enemy" type="bool" value="false"/>
    <property name="player" type="bool" value="false"/>
    <property name="tile" type="bool" value="true"/>
+   <property name="wall" type="bool" value="true"/>
    <property name="weapon" type="bool" value="false"/>
   </properties>
  </tile>
@@ -25,6 +26,7 @@
    <property name="enemy" type="bool" value="false"/>
    <property name="player" type="bool" value="false"/>
    <property name="tile" type="bool" value="true"/>
+   <property name="wall" type="bool" value="true"/>
    <property name="weapon" type="bool" value="false"/>
   </properties>
  </tile>
@@ -34,6 +36,7 @@
    <property name="enemy" type="bool" value="false"/>
    <property name="player" type="bool" value="false"/>
    <property name="tile" type="bool" value="true"/>
+   <property name="wall" type="bool" value="true"/>
    <property name="weapon" type="bool" value="false"/>
   </properties>
  </tile>
@@ -43,6 +46,7 @@
    <property name="enemy" type="bool" value="false"/>
    <property name="player" type="bool" value="false"/>
    <property name="tile" type="bool" value="true"/>
+   <property name="wall" type="bool" value="true"/>
    <property name="weapon" type="bool" value="false"/>
   </properties>
  </tile>
@@ -52,6 +56,7 @@
    <property name="enemy" type="bool" value="false"/>
    <property name="player" type="bool" value="false"/>
    <property name="tile" type="bool" value="true"/>
+   <property name="wall" type="bool" value="true"/>
    <property name="weapon" type="bool" value="false"/>
   </properties>
  </tile>
@@ -124,6 +129,7 @@
    <property name="enemy" type="bool" value="false"/>
    <property name="player" type="bool" value="false"/>
    <property name="tile" type="bool" value="true"/>
+   <property name="wall" type="bool" value="true"/>
    <property name="weapon" type="bool" value="false"/>
   </properties>
  </tile>
@@ -142,6 +148,7 @@
    <property name="enemy" type="bool" value="false"/>
    <property name="player" type="bool" value="false"/>
    <property name="tile" type="bool" value="true"/>
+   <property name="wall" type="bool" value="true"/>
    <property name="weapon" type="bool" value="false"/>
   </properties>
  </tile>
@@ -151,6 +158,7 @@
    <property name="enemy" type="bool" value="false"/>
    <property name="player" type="bool" value="false"/>
    <property name="tile" type="bool" value="true"/>
+   <property name="wall" type="bool" value="true"/>
    <property name="weapon" type="bool" value="false"/>
   </properties>
  </tile>
@@ -160,6 +168,7 @@
    <property name="enemy" type="bool" value="false"/>
    <property name="player" type="bool" value="false"/>
    <property name="tile" type="bool" value="true"/>
+   <property name="wall" type="bool" value="true"/>
    <property name="weapon" type="bool" value="false"/>
   </properties>
  </tile>
@@ -232,6 +241,7 @@
    <property name="enemy" type="bool" value="false"/>
    <property name="player" type="bool" value="false"/>
    <property name="tile" type="bool" value="true"/>
+   <property name="wall" type="bool" value="true"/>
    <property name="weapon" type="bool" value="false"/>
   </properties>
  </tile>
@@ -241,6 +251,7 @@
    <property name="enemy" type="bool" value="false"/>
    <property name="player" type="bool" value="false"/>
    <property name="tile" type="bool" value="true"/>
+   <property name="wall" type="bool" value="true"/>
    <property name="weapon" type="bool" value="false"/>
   </properties>
  </tile>
@@ -250,6 +261,7 @@
    <property name="enemy" type="bool" value="false"/>
    <property name="player" type="bool" value="false"/>
    <property name="tile" type="bool" value="true"/>
+   <property name="wall" type="bool" value="true"/>
    <property name="weapon" type="bool" value="false"/>
   </properties>
  </tile>
@@ -520,6 +532,7 @@
    <property name="enemy" type="bool" value="false"/>
    <property name="player" type="bool" value="false"/>
    <property name="tile" type="bool" value="true"/>
+   <property name="wall" type="bool" value="true"/>
    <property name="weapon" type="bool" value="false"/>
   </properties>
  </tile>
@@ -529,6 +542,7 @@
    <property name="enemy" type="bool" value="false"/>
    <property name="player" type="bool" value="false"/>
    <property name="tile" type="bool" value="true"/>
+   <property name="wall" type="bool" value="true"/>
    <property name="weapon" type="bool" value="false"/>
   </properties>
  </tile>
@@ -538,6 +552,7 @@
    <property name="enemy" type="bool" value="false"/>
    <property name="player" type="bool" value="false"/>
    <property name="tile" type="bool" value="true"/>
+   <property name="wall" type="bool" value="true"/>
    <property name="weapon" type="bool" value="false"/>
   </properties>
  </tile>
@@ -574,6 +589,7 @@
    <property name="enemy" type="bool" value="false"/>
    <property name="player" type="bool" value="false"/>
    <property name="tile" type="bool" value="true"/>
+   <property name="wall" type="bool" value="true"/>
    <property name="weapon" type="bool" value="false"/>
   </properties>
  </tile>
@@ -583,6 +599,7 @@
    <property name="enemy" type="bool" value="false"/>
    <property name="player" type="bool" value="false"/>
    <property name="tile" type="bool" value="true"/>
+   <property name="wall" type="bool" value="true"/>
    <property name="weapon" type="bool" value="false"/>
   </properties>
  </tile>
@@ -592,6 +609,7 @@
    <property name="enemy" type="bool" value="false"/>
    <property name="player" type="bool" value="false"/>
    <property name="tile" type="bool" value="true"/>
+   <property name="wall" type="bool" value="true"/>
    <property name="weapon" type="bool" value="false"/>
   </properties>
  </tile>
@@ -655,6 +673,7 @@
    <property name="enemy" type="bool" value="false"/>
    <property name="player" type="bool" value="false"/>
    <property name="tile" type="bool" value="true"/>
+   <property name="wall" type="bool" value="true"/>
    <property name="weapon" type="bool" value="false"/>
   </properties>
  </tile>
@@ -664,6 +683,7 @@
    <property name="enemy" type="bool" value="false"/>
    <property name="player" type="bool" value="false"/>
    <property name="tile" type="bool" value="true"/>
+   <property name="wall" type="bool" value="true"/>
    <property name="weapon" type="bool" value="false"/>
   </properties>
  </tile>
@@ -673,6 +693,7 @@
    <property name="enemy" type="bool" value="false"/>
    <property name="player" type="bool" value="false"/>
    <property name="tile" type="bool" value="true"/>
+   <property name="wall" type="bool" value="true"/>
    <property name="weapon" type="bool" value="false"/>
   </properties>
  </tile>
@@ -682,6 +703,7 @@
    <property name="enemy" type="bool" value="false"/>
    <property name="player" type="bool" value="false"/>
    <property name="tile" type="bool" value="true"/>
+   <property name="wall" type="bool" value="true"/>
    <property name="weapon" type="bool" value="false"/>
   </properties>
  </tile>
@@ -745,6 +767,7 @@
    <property name="enemy" type="bool" value="false"/>
    <property name="player" type="bool" value="false"/>
    <property name="tile" type="bool" value="true"/>
+   <property name="wall" type="bool" value="true"/>
    <property name="weapon" type="bool" value="false"/>
   </properties>
  </tile>
