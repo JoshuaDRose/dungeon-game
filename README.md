@@ -35,6 +35,11 @@ __Sep 29__
  - Created main menu background 
  - Added in `SRCALPHA` for smoother transitions
  
+__Sep 30__
+ - Added debugging interface 
+ - Improved fonts 
+ - Added Kenney UI pack and Kenney fonts
+ 
 Artwork Attributions
 -------------------------------------------------------------------------------
 Huge thanks to Kenney Art for the sprites. You can find more of their stuff [here](https://www.kenney.nl).
