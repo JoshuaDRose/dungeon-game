@@ -172,6 +172,12 @@ class Level:
                 actor.draw(self.screen)
 
             for checkbox in self.checkboxes:
+                if pygame.Rect.collidepoint(checkbox.rect, self.mp):
+                    if self.mclick:
+                        checkbox.pressed = True
+                    else:
+                        checkbox.pressed = False
+
                 checkbox.update()
                 checkbox.draw(self.screen)
 

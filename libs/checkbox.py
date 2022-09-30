@@ -19,17 +19,10 @@ class CheckBox(pygame.sprite.Sprite):
 
     def update(self):
         if self.pressed:
-            if self.convert:
-                self.image = pygame.image.load('./art/ui/buttonSquare_beige_pressed.png').convert_alpha()
-                self.image.set_colorkey((0, 0, 0))
-                self.convert = False
+            self.image = pygame.image.load('./art/ui/buttonSquare_beige_pressed.png').convert_alpha()
+            self.image.set_colorkey((0, 0, 0))
+            self.convert = False
         else:
-            if self.convert:
-                self.image = pygame.image.load('./art/ui/buttonSquare_beige.png').convert_alpha()
-                self.image.set_colorkey((0, 0, 0))
-                self.convert = False
-
-    def toggle(self):
-        self.convert = not self.convert
-        self.pressed = not self.pressed
-
+            self.image = pygame.image.load('./art/ui/buttonSquare_beige.png').convert_alpha()
+            self.image.set_colorkey((0, 0, 0))
+            self.convert = False
