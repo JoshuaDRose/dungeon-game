@@ -39,6 +39,7 @@ __Sep 30__
  - Added debugging interface 
  - Improved fonts 
  - Added Kenney UI pack and Kenney fonts
+ - Much needed improvement to the map layout
  
 Artwork Attributions
 -------------------------------------------------------------------------------
