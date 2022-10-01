@@ -8,6 +8,8 @@
 # - add enemy animation
 # - fix ui 
 # - add settings ctx
+# - cool transitions? :)
+
 import os
 import sys
 import pytmx
