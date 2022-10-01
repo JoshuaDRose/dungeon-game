@@ -1,3 +1,13 @@
+#                 --  TODO  --
+# - add collision to walls 
+# - make player sprint function 
+# - adjust player FOV only when sprinting
+# - fix broken buttons
+# - get player hitbox to work
+# - add more levels
+# - add enemy animation
+# - fix ui 
+# - add settings ctx
 import os
 import sys
 import pytmx
