@@ -11,7 +11,7 @@ class Health(pygame.sprite.Sprite):
         self.rect.x, self.rect.y = position
         self.health = health
         self.position = position
-        self.do_init = 1 # high velocity increase
+        self.do_init = 1 # TODO --> high velocity increase
 
     def draw(self, surface) -> None:
         pygame.draw.rect(surface, (200, 45, 10), pygame.Rect(

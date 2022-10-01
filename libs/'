@@ -70,7 +70,7 @@ class CameraGroup(pygame.sprite.Group):
                 target.rect.width,
                 target.rect.height)
 
-            # pygame.draw.rect(self.surface, (255,0,0), self.target_hitbox, 3, 0)
+            pygame.draw.rect(self.surface, (255,0,0), self.target_hitbox, 3, 0)
 
 
         scaled_surf = pygame.transform.scale(self.surface, self.movement * self.scale)

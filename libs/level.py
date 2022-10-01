@@ -156,14 +156,13 @@ class Level:
             self.target.update()
             self.enemies.update()
             self.target.hitbox = self.all_sprites.target_hitbox
-            for sprite in self.enemies:
-                if pygame.Rect.colliderect(sprite.rect, self.all_sprites.target_hitbox):
-                    target.colliding = True
-
-                pygame.draw.rect(sprite.image, (255, 0, 0), sprite.rect, 3, 0)
+            for sprite in self.all_sprites:
+                if pygame.Rect.colliderect(sprite.rect, self.target.rect):
+                    # target.colliding = True
+                    # sprite.image.fill((255, 0, 0))
+                    pass
 
             self.target.can_sprint = self.stamina_bar.stamina > 0
-
             if self.target.sprinting:
                 if self.stamina_bar.stamina > 0:
                     self.stamina_bar.stamina -= 1
@@ -172,7 +171,7 @@ class Level:
 
             self.all_sprites.draw_ctx(self.screen, self.target)
             self.all_sprites.zoom_out = self.target.sprinting
-            self.all_sprites.zoom_monitor()
+            # self.all_sprites.zoom_monitor() # NOTE TO SELF - ALWAYS ENABLE UNLESS CAMERA DEBUGGING
 
             # draw red dot
             # pygame.draw.circle(self.screen, (255, 0, 0), (self.mp[0] + 1, self.mp[1] + 1), 2)
@@ -190,6 +189,22 @@ class Level:
 
                 checkbox.update()
                 checkbox.draw(self.screen)
+            
+            pygame.draw.rect(
+                self.all_sprites.surface,
+                (255, 0,  0),
+                self.target.rect,
+                2)
+
+            self.all_sprites.surface.fill((255, 0, 0))
+
+            # NOTE this is all debugging:
+            # self.rel_hitbox = pygame.Rect((self.target.hitbox.x + 222, self.target.hitbox.y + 63, 32, 32))
+            # pygame.draw.rect(self.all_sprites.surface, (255, 255, 255), )
+            # print(self.rel_hitbox.x, self.rel_hitbox.y))
+            # print((self.player.rect.x, self.player.rect.y))
+            # print((self.target.hitbox.x, self.target.hitbox.y))
+            # print((self.all_sprites.target_hitbox.x, self.all_sprites.target_hitbox.y))
 
         elif ctx['menu']:
             self.title_tiles.draw(self.screen)
