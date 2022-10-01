@@ -7,6 +7,10 @@ __pycache__/
 *.so
 *.sh
 
+# Stuff
+*.tex
+*.html
+
 # Distribution / packaging
 .Python
 develop-eggs/
