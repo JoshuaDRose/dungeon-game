@@ -34,6 +34,10 @@ __Sep 30__
  - Improved fonts 
  - Added Kenney UI pack and Kenney fonts
  - Much needed improvement to the map layout
+
+__Oct 1__
+ - Fixed movement smoothing issue with player
+ - Added agenda to header docstring in main.py
  
 Artwork Attributions
 -------------------------------------------------------------------------------
