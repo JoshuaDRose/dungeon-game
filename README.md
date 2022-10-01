@@ -7,7 +7,7 @@ _A roguelike dungeon explorer game_
 ![commits](https://img.shields.io/github/commit-activity/w/JoshuaDRose/dungeon-game?label=commits&logo=git&logoColor=white&color=%23e67233)
 ![](https://tokei.rs/b1/github/JoshuaDRose/dungeon-game)
 ![Python application](https://github.com/JoshuaDRose/dungeon-game/actions/workflows/python-app.yml/badge.svg?branch=master)
-
+![release](https://img.shields.io/github/v/release/JoshuaDRose/dungeon-game?display_name=release&include_prereleases&logo=linux&logoColor=white&sort=semver)
 </div>
 
 
