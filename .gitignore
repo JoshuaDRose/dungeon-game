@@ -20,6 +20,8 @@ develop-eggs/
 downloads/
 eggs/
 .eggs/
+build/
+dist/
 lib/
 lib64/
 parts/
