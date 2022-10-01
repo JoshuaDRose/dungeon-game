@@ -10,6 +10,8 @@ __pycache__/
 # Stuff
 *.tex
 *.html
+*.toc
+*.TeX
 
 # Distribution / packaging
 .Python
