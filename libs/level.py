@@ -55,8 +55,8 @@ class Level:
         self.mclick = False
         pygame.mouse.set_visible(1)
 
-        self.health_bar = Health((10, 5), self.ui_bars)
-        self.stamina_bar = Stamina((10, 20), self.ui_bars)
+        self.health_bar = Health((10, 10), self.ui_bars)
+        self.stamina_bar = Stamina((10, 40), self.ui_bars)
 
         self.count_tiles = 0
         self.count_characters = 0
@@ -162,14 +162,13 @@ class Level:
 
                 pygame.draw.rect(sprite.image, (255, 0, 0), sprite.rect, 3, 0)
 
+            self.target.can_sprint = self.stamina_bar.stamina > 0
+
             if self.target.sprinting:
-                # print('removing stmina')
-                # print((self.target.vel.x, self.target.vel.y))
                 if self.stamina_bar.stamina > 0:
                     self.stamina_bar.stamina -= 1
             elif self.stamina_bar.stamina < 100:
                 self.stamina_bar.stamina += 1
-            print(self.stamina_bar.stamina)
 
             self.all_sprites.draw_ctx(self.screen, self.target)
             self.all_sprites.zoom_out = self.target.sprinting
