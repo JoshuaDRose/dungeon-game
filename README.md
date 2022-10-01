@@ -39,6 +39,8 @@ __Sep 30__
 __Oct 1__
  - Fixed movement smoothing issue with player
  - Added agenda to header docstring in main.py
+ - Added sprint mechanics
+ - Published release (linux-exclusive)
  
 Artwork Attributions
 -------------------------------------------------------------------------------
