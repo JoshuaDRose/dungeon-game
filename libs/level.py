@@ -30,6 +30,7 @@ class Level:
         self.enemies = Group()
         self.all_sprites = Group()
         self.player = Group()
+        self.particles = Group()
 
         self.checkboxes = pygame.sprite.Group()
         self.ui_bars = pygame.sprite.Group()
@@ -54,8 +55,8 @@ class Level:
         self.mclick = False
         pygame.mouse.set_visible(1)
 
-        self.health_bar = Health((10, 10), self.ui_bars)
-
+        self.health_bar = Health((10, 5), self.ui_bars)
+        self.stamina_bar = Stamina((10, 20), self.ui_bars)
 
         self.count_tiles = 0
         self.count_characters = 0
@@ -161,11 +162,21 @@ class Level:
 
                 pygame.draw.rect(sprite.image, (255, 0, 0), sprite.rect, 3, 0)
 
+            if self.target.sprinting:
+                # print('removing stmina')
+                # print((self.target.vel.x, self.target.vel.y))
+                if self.stamina_bar.stamina > 0:
+                    self.stamina_bar.stamina -= 1
+            elif self.stamina_bar.stamina < 100:
+                self.stamina_bar.stamina += 1
+            print(self.stamina_bar.stamina)
+
             self.all_sprites.draw_ctx(self.screen, self.target)
             self.all_sprites.zoom_out = self.target.sprinting
             self.all_sprites.zoom_monitor()
-            pygame.draw.circle(self.screen, (255, 0, 0), 
-                    (self.mp[0] + 1, self.mp[1] + 1), 2)
+
+            # draw red dot
+            # pygame.draw.circle(self.screen, (255, 0, 0), (self.mp[0] + 1, self.mp[1] + 1), 2)
 
             for actor in self.ui_bars:
                 actor.update()
