@@ -25,6 +25,7 @@ class CameraGroup(pygame.sprite.Group):
         self.target_hitbox = pygame.Rect(0, 0, 0, 0)
 
         self.zoom_out = 0
+        self.player = 0
 
     def zoom_monitor(self):
         if self.zoom_out:
@@ -47,18 +48,26 @@ class CameraGroup(pygame.sprite.Group):
         self.offset.x = sprite.rect.centerx - self.split_width
         self.offset.y = sprite.rect.centery - self.split_height
 
+    def get_player(self):
+        print("camera.cameraGroup.get_player > retrieving player from index")
+        for sprite in sorted(self.sprites(),key=lambda sprite: sprite.rect):
+            if '__player__' in sprite.__dir__():
+                print("Done")
+                return sprite
+
     def draw_ctx(self, surface, target=None):
 
-        self.surface.fill('#e3a56d')
 
+        if not self.player:
+            self.player = self.get_player()
         if target:
             self.target_center(target)
 
         try:
-            for sprite in sorted(self.sprites(), key=lambda sprite: sprite.rect.centery):
-                # if sprite.__doc__ != 'player':
+            for sprite in sorted(self.sprites(), key=lambda sprite: sprite.rect):
                 offset_position = sprite.rect.topleft - self.offset
                 self.surface.blit(sprite.image, offset_position)
+
         finally:
             offset_position = target.rect.topleft - self.offset + self.inner_offset
             self.surface.blit(target.image,
@@ -71,7 +80,7 @@ class CameraGroup(pygame.sprite.Group):
                 target.rect.height)
 
             # pygame.draw.rect(self.surface, (255,0,0), self.target_hitbox, 3, 0)
-
+        # NOTE do all player collision in here
 
         scaled_surf = pygame.transform.scale(self.surface, self.movement * self.scale)
         scaled_rect = scaled_surf.get_rect(center=(self.split_width, self.split_height))

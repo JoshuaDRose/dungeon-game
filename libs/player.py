@@ -24,6 +24,7 @@ class Player(pygame.sprite.Sprite):
         self.sprinting = False
         self.can_sprint = False
         self.buffer = 0.5
+        self.__player__ = 1
 
     def recv_input(self):
 

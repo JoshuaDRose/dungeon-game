@@ -174,7 +174,7 @@ class Level:
             # self.all_sprites.zoom_monitor() # NOTE TO SELF - ALWAYS ENABLE UNLESS CAMERA DEBUGGING
 
             # draw red dot
-            # pygame.draw.circle(self.screen, (255, 0, 0), (self.mp[0] + 1, self.mp[1] + 1), 2)
+            pygame.draw.circle(self.screen, (255, 0, 0), (self.mp[0] + 1, self.mp[1] + 1), 2)
 
             for actor in self.ui_bars:
                 actor.update()
@@ -190,16 +190,10 @@ class Level:
                 checkbox.update()
                 checkbox.draw(self.screen)
             
-            pygame.draw.rect(
-                self.all_sprites.surface,
-                (255, 0,  0),
-                self.target.rect,
-                2)
-
-            self.all_sprites.surface.fill((255, 0, 0))
-
-            # NOTE this is all debugging:
             # self.rel_hitbox = pygame.Rect((self.target.hitbox.x + 222, self.target.hitbox.y + 63, 32, 32))
+            for i in self.enemies:
+                    print('touching enemy')
+
             # pygame.draw.rect(self.all_sprites.surface, (255, 255, 255), )
             # print(self.rel_hitbox.x, self.rel_hitbox.y))
             # print((self.player.rect.x, self.player.rect.y))
