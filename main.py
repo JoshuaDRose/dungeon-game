@@ -9,6 +9,8 @@
 # - fix ui 
 # - add settings ctx
 # - cool transitions? :)
+# - add stamina bar
+# - add particles
 
 import os
 import sys

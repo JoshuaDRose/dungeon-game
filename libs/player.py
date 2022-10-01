@@ -21,15 +21,14 @@ class Player(pygame.sprite.Sprite):
         self.vel = pygame.math.Vector2(0, 0)
         self.hitbox = pygame.Rect(0, 0, 0, 0)
         self.colliding = False
+        self.sprinting = False
+        self.buffer = 0.5
 
     def recv_input(self):
 
-        # if self.vel.magnitude() > 0:
-        #    self.vel = self.vel.normalize()
-
         key = pygame.key.get_pressed()
-
         self.pressing = any((key[K_UP], key[K_DOWN], key[K_LEFT], key[K_RIGHT]))
+        self.sprinting = (pygame.key.get_mods() & pygame.KMOD_SHIFT) and self.pressing
 
         if key[K_UP]:
             self.acc.y = -ACC
@@ -52,7 +51,10 @@ class Player(pygame.sprite.Sprite):
             if self.vel.magnitude() == 0:
                 self.acc = pygame.math.Vector2(0, 0)
 
-        # print((self.vel.x, self.vel.y, "|", self.acc.x, self.acc.y))
+        if self.sprinting:
+            self.buffer = 2
+        else:
+            self.buffer = 0.5
 
     def move(self):
 
@@ -62,7 +64,7 @@ class Player(pygame.sprite.Sprite):
         self.acc.y += self.vel.y * FRIC
 
         self.vel += self.acc
-        self.position += self.vel + 0.5 * self.acc
+        self.position += self.vel + self.buffer * self.acc
 
         self.rect.centerx = self.position.x // 2
         self.rect.centery = self.position.y // 2

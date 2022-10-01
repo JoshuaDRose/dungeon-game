@@ -162,7 +162,7 @@ class Level:
                 pygame.draw.rect(sprite.image, (255, 0, 0), sprite.rect, 3, 0)
 
             self.all_sprites.draw_ctx(self.screen, self.target)
-            self.all_sprites.zoom_out = self.target.motion
+            self.all_sprites.zoom_out = self.target.sprinting
             self.all_sprites.zoom_monitor()
             pygame.draw.circle(self.screen, (255, 0, 0), 
                     (self.mp[0] + 1, self.mp[1] + 1), 2)
