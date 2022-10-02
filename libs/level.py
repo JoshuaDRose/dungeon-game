@@ -171,7 +171,7 @@ class Level:
 
             self.all_sprites.draw_ctx(self.screen, self.target)
             self.all_sprites.zoom_out = self.target.sprinting
-            # self.all_sprites.zoom_monitor() # NOTE TO SELF - ALWAYS ENABLE UNLESS CAMERA DEBUGGING
+            self.all_sprites.zoom_monitor() # NOTE TO SELF - ALWAYS ENABLE UNLESS CAMERA DEBUGGING
 
             # draw red dot
             # pygame.draw.circle(self.screen, (255, 0, 0), (self.mp[0] + 1, self.mp[1] + 1), 2)
