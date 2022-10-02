@@ -26,6 +26,7 @@ class Level:
 
         self.buttons = Group()
         self.coins = Group()
+        self.settings_buttons = Group()
         self.tiles = Group()
         self.enemies = Group()
         self.all_sprites = Group()
@@ -84,6 +85,14 @@ class Level:
                 (255, 255, 255),
                 (0, 400),
                 groups=self.buttons,
+                center=(1, 0)
+        )
+
+        self.vol_sfx = Button(
+                "SFX Volume",
+                (255, 255, 255),
+                (0, 200),
+                groups=self.settings_buttons,
                 center=(1, 0)
         )
 
@@ -216,10 +225,25 @@ class Level:
                         if button.name.lower() == 'play':
                             ctx['game'] = 1
                             ctx['menu'] = 0
+                        elif button.name.lower() == 'settings':
+                            ctx['settings'] = 1
                         elif button.name.lower() == 'quit':
                             pygame.quit()
                             sys.exit(0)
                 else:
                     button.hover = False
-
                 button.draw(self.screen)
+
+            if ctx['settings']:
+                self.title_tiles.draw(self.screen)
+                for button in self.settings_buttons:
+                    button.update()
+                    if pygame.Rect.collidepoint(button.rect, self.mp):
+                        button.hover = True
+                        if self.mclick:
+                            if button.name.lower() == 'SFX Volume':
+                                print("volume menu")
+                                ...
+                    else:
+                        button.hover = False
+                    button.draw(self.screen)

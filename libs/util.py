@@ -3,7 +3,6 @@ import pygame
 from .consts import WHITE, font
 
 def draw_text(text, pos, center=False):
-    # global font
     return font.render(
             text=text,
             antialias=True,
