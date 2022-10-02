@@ -5,6 +5,7 @@ import pygame
 import pytmx
 
 from .ui import *
+from .bar import *
 from .util import *
 from .consts import *
 from .tile import Tile
@@ -97,6 +98,8 @@ class Level:
         )
 
         self.zoom_debug = CheckBox((self.width - 75, 75), self.checkboxes)
+
+        self.sfx_bar = 
         
         for layer in self.title_screen:
             if isinstance(layer, pytmx.TiledTileLayer):
@@ -243,7 +246,6 @@ class Level:
                         if self.mclick:
                             if button.name.lower() == 'SFX Volume':
                                 print("volume menu")
-                                ...
                     else:
                         button.hover = False
                     button.draw(self.screen)

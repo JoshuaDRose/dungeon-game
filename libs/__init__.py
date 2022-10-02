@@ -2,6 +2,7 @@ from .util import *
 from .consts import *
 from .button import *
 from .level import *
+from .bar import *
 from .player import *
 from .tile import *
 from .spritesheet import *
