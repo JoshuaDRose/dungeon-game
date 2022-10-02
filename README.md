@@ -42,6 +42,11 @@ __Oct 1__
  - Added sprint mechanics
  - Published release (linux-exclusive)
  
+__Oct 2__
+ - Changes to camera system
+ - Additions to menu (audio settings and optimization)
+ 
+ 
 Artwork Attributions
 -------------------------------------------------------------------------------
 Huge thanks to Kenney Art for the sprites. You can find more of their stuff [here](https://www.kenney.nl).
